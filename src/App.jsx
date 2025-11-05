@@ -1,17 +1,21 @@
+import { useState } from "react";
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 import { Map } from "./Map";
 
 import "./App.css";
-import "leaflet/dist/leaflet.css";
+import "leaflet/dist/leaflet.css"; //ist für die Kartenanzeige notwendig
+
+console.log();
 
 function App() {
+  const [button, setButton] = useState({});
   return (
     <div className="app">
       <Header />
-      <Sidebar />
+      <Sidebar button={button} />
       <div className="mainArea">
-        <Map />
+        <Map setButton={setButton} />
       </div>
     </div>
   );
