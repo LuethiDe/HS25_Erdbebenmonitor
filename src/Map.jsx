@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 import data from "./assets/4.5_week.geojson.json";
 import plate_boundaries from "./assets/plate_boundaries.geojson.json";
 
-export const Map = ({ setButton }) => {
+export const Map = ({ size, setButton }) => {
   const earthquakes = data.features; // Wir benötigen nur den Feature-Array aus den Daten
 
   return (
@@ -36,7 +36,7 @@ export const Map = ({ setButton }) => {
         <CircleMarker
           key={i}
           center={[d.geometry.coordinates[1], d.geometry.coordinates[0]]}
-          radius={d.properties.mag ** 2} // Größe basierend auf Magnitude
+          radius={d.properties.mag ** size} // Größe basierend auf Magnitude
           pathOptions={{
             color: "#FF9050",
             fillColor: "#FF9050",
@@ -50,6 +50,7 @@ export const Map = ({ setButton }) => {
                 onClick={() => setButton(d)}
                 variant="outlined"
                 size="small"
+                color="success"
               >
                 Mehr Infos
               </Button>

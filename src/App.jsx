@@ -10,12 +10,13 @@ console.log();
 
 function App() {
   const [button, setButton] = useState({});
+  const [size, setSize] = useState(1);
   return (
     <div className="app">
       <Header />
-      <Sidebar button={button} />
+      <Sidebar button={button} size={size} setSize={setSize} />
       <div className="mainArea">
-        <Map setButton={setButton} />
+        <Map setButton={setButton} size={size} setSize={setSize} />
       </div>
     </div>
   );
