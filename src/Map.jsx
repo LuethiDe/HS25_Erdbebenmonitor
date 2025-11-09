@@ -8,11 +8,11 @@ import {
 } from "react-leaflet";
 import Button from "@mui/material/Button";
 
-import data from "./assets/4.5_week.geojson.json";
+//import data from "./assets/4.5_week.geojson.json";
 import plate_boundaries from "./assets/plate_boundaries.geojson.json";
 
-export const Map = ({ size, setButton }) => {
-  const earthquakes = data.features; // Wir benötigen nur den Feature-Array aus den Daten
+export const Map = ({ size, setButton, data_api }) => {
+  const earthquakes = data_api.features || []; // Wir benötigen nur den Feature-Array aus den Daten
 
   return (
     <MapContainer
